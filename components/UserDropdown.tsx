@@ -13,11 +13,13 @@ import { AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
 import { Avatar } from "./ui/avatar";
 import { LogOutIcon } from "lucide-react";
 import NavItems from "./NavItems";
+import { signOut } from "@/lib/actions/auth.actions";
 
 const UserDropdown = ({user} : { user : User}) => {
   const router = useRouter();
 
   const handleSignout = async () => {
+    await signOut();
     router.push("/sign-in");
   };
 
